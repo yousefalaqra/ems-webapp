@@ -3,9 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { RegistrationComponent } from './rwgsitration.component';
+import { RegistrationComponent } from './regsitration.component';
 
-describe('RwgsitrationComponent', () => {
+describe('RegsitrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
 

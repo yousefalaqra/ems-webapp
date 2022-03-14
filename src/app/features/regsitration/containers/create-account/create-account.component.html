@@ -1,6 +1,21 @@
-// TODO: From to create new account
-// Form: fomr containes user model
-// on sumit http request api 
-// on sucess show message check your eamil
-// on failure show appriotat message
-// stp: 5pts
+<!-- // TODO: From to create new account
+// Form: form contains user model --Done
+// on submit http request api --Done
+// on success show message check your email
+// on failure show approbate message
+// stp: 5pts -->
+
+<div class="container my-4 w-50">
+  <h1 class="text-primary mb-3">Sign Up Page</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" placeholder="Email Address" formControlName="email">
+      <label for="email">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+      <label for="password">Password</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-rwgsitration',
-  templateUrl: './rwgsitration.component.html',
-  styleUrls: ['./rwgsitration.component.scss']
+  selector: 'app-regsitration',
+  templateUrl: './regsitration.component.html',
+  styleUrls: ['./regsitration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
 

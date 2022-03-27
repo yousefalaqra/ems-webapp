@@ -1,5 +1,26 @@
-// TODO: Show list of events 
-// list of event,for each event event, name, startTime, endTime, isMian, isactive
-// load events from api
-// on click row: navigate user to event details component 
-// story points: 5pts
+<!-- 
+    // TODO: Show list of events 
+    // list of event,for each event event, name, startTime, endTime, isMian, isactive
+    // load events from api
+    // on click row: navigate user to event details component 
+    // story points: 5pts
+-->
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+          <th scope="col">Is Main</th>
+          <th scope="col">Is Published</th>
+        </tr>
+      </thead>
+  </table>
+<app-event-list-view 
+    *ngFor="let event of eventsList" 
+    [eventDetails]="event"
+    (clickEvent)="goToDetails($event)"
+></app-event-list-view>
+
+

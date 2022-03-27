@@ -11,19 +11,16 @@
           <th scope="col">#</th>
           <th scope="col">Title</th>
           <th scope="col">Start Time</th>
-          <th scope="col">End Time</th> 
-          <th scope="col">Is Main</th> 
-          <th scope="col">Is Published</th> 
+          <th scope="col">End Time</th>
+          <th scope="col">Is Main</th>
+          <th scope="col">Is Published</th>
         </tr>
       </thead>
-      <tbody>
-          <tr *ngFor="let event of eventsList; let i = index" (click)="goToDetailsPage(event.id)">
-            <td>{{ i + 1 }}</td>
-            <td>{{ event.title }}</td>
-            <td>{{ event.startTime }}</td>
-            <td>{{ event.endTime }}</td>
-            <td>{{ event.isMain ? "Yes" : "No" }}</td>
-            <td>{{ event.isPublished ? "Yes" : "No" }}</td>
-          </tr>
-      </tbody>
-</table>
+  </table>
+<app-event-list-view 
+    *ngFor="let event of eventsList" 
+    [eventDetails]="event"
+    (clickEvent)="goToDetails($event)"
+></app-event-list-view>
+
+

@@ -1,0 +1,9 @@
+table {
+    margin: 0;
+    width: 100vw;
+}
+
+table tr th,
+table tr td {
+    width: calc(100vw / 9);
+}

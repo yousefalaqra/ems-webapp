@@ -1,31 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventListDetailsInterface } from '../../interfaces/event-list-details.interface';
-import { EventListDetailsService } from '../../services/event-list-details.service';
+import { Subscription } from 'rxjs';
+import { EventInterface } from '../../interfaces/event.interface';
+import { EventService } from '../../services/event.service';
 
 
 @Component({
   selector: 'app-events-list-details',
   templateUrl: './events-list-details.component.html',
-  styleUrls: ['./events-list-details.component.scss']
+  styleUrls: ['./events-list-details.component.scss', '../shared/style/common-style.scss']
 })
-export class EventsListDetailsComponent implements OnInit {
+export class EventsListDetailsComponent implements OnInit, OnDestroy {
 
-  eventListDetails: EventListDetailsInterface | any = {} ;
+  event = <EventInterface>{};
+  id = this._activatedRoute.snapshot.params['id'];
+  subscription: Subscription | any
 
   constructor(
-    private route: ActivatedRoute,
-    private eventListDetailsService: EventListDetailsService
+    private _eventService: EventService,
+    private _activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
-    this.getEventListDetails(id);
+    this.subscription = this.getDetails()
   }
 
-  getEventListDetails(id: number) {
-    return this.eventListDetailsService.getEventListDetails(id).subscribe(
-      res => this.eventListDetails = res
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
+
+  getDetails() {
+    return this._eventService.getEventDetails(this.id).subscribe(
+      res => this.event = res
     )
   }
 

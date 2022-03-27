@@ -3,19 +3,19 @@ import { CommonModule } from "@angular/common";
 import { EventsComponent } from "./components/events/events.component";
 import { EventsListComponent } from "./containers/events-list/events-list.component";
 import { EventRoutingModule } from "./event.routes";
-import { EventsListService } from "./services/events-list.service";
+import { EventService } from "./services/event.service";
 import { EventsListDetailsComponent } from './containers/events-list-details/events-list-details.component';
-import { EventListDetailsService } from "./services/event-list-details.service";
+import { EventListViewComponent } from "./containers/event-list-view/event-list-view.component";
 
 @NgModule({
     declarations: [
         EventsComponent,
         EventsListComponent,
-        EventsListDetailsComponent
+        EventsListDetailsComponent,
+        EventListViewComponent
     ],
     providers: [
-        EventsListService,
-        EventListDetailsService
+        EventService,
     ],
     imports:[
         EventRoutingModule,
